@@ -28,7 +28,7 @@ const mutations = {
     payload: { message: string; variant?: string; boldMessage?: string }
   ) {
     const toast: Toast = {
-      id: uuidv4(), // Generate a unique ID using uuidv4()
+      id: uuidv4(),
       message: payload.message,
       variant: payload.variant || "success",
       boldMessage: payload.boldMessage || "",

@@ -80,18 +80,4 @@ router.beforeEach(async (to, from, next) => {
   next();
 });
 
-window.addEventListener("storage", checkLocalStorage);
-
-function checkLocalStorage() {
-  const token = localStorage.getItem("token");
-
-  // Check if the token is null (localStorage cleared)
-  if (token === null) {
-    // Remove the event listener to prevent further checks
-    window.removeEventListener("storage", checkLocalStorage);
-    // Reload the page to force a refresh
-    window.location.reload();
-  }
-}
-
 export default router;
