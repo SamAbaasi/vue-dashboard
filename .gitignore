@@ -1,0 +1,38 @@
+# Node.js / NPM
+node_modules/
+
+# Compiled output
+dist/
+build/
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Editor-specific files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Logs and databases
+*.log
+*.sqlite
+*.db
+*.sqlite3
+
+# Environment variables
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Dependency lock files
+yarn.lock
+package-lock.json
+
+# Personal configuration files
+npm-debug.log
+
+# Visual Studio Code settings
+.vscode/
