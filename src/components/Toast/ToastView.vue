@@ -22,9 +22,10 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import store from "@/store";
 
-export default {
+export default Vue.extend({
   props: {
     padding: {
       type: Boolean,
@@ -64,7 +65,7 @@ export default {
       store.dispatch("removeToast", id);
     },
   },
-};
+});
 </script>
 
 <style>

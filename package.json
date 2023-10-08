@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.8.3",
+    "@types/uuid": "^9.0.5",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
     "@vue/cli-plugin-babel": "~5.0.0",

@@ -10,12 +10,13 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import ArticleForm from "@/components/ArticleForm/ArticleForm.vue"; // Import your ArticleForm component here
 import { createArticle } from "@/API/articlesApi";
 import { ArticleData } from "@/types/articles";
 import useAPI from "@/Hooks/useApi";
 
-export default {
+export default Vue.extend({
   name: "NewArticleView",
   components: {
     ArticleForm,
@@ -45,5 +46,5 @@ export default {
       this.loading = pending.value;
     },
   },
-};
+});
 </script>

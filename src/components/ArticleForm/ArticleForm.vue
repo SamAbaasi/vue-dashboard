@@ -125,6 +125,7 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import { Article, ArticleFormData } from "./types"; // Import your types
 import { getAllTags } from "@/API/tags";
 import { TRANSLATIONS } from "@/components/ArticleForm/constants";
@@ -138,7 +139,7 @@ import "@/utils/validationRules";
 import useAPI from "@/Hooks/useApi";
 setInteractionMode("eager");
 
-export default {
+export default Vue.extend({
   components: {
     ValidationProvider,
     ValidationObserver,
@@ -151,7 +152,8 @@ export default {
     },
     isEditing: {
       type: Boolean,
-      required: false,
+      required: true,
+      default: false,
     },
     loading: {
       type: Boolean,
@@ -185,7 +187,7 @@ export default {
   watch: {
     "article.tagList": {
       immediate: true, // This ensures the watcher runs immediately on component creation
-      handler(newValue) {
+      handler(newValue: string[]) {
         // Update selectedTags with a copy of article.tagList
         this.selectedTags = [...newValue];
       },
@@ -236,7 +238,7 @@ export default {
       return dirty || validated ? valid : null;
     },
   },
-};
+});
 </script>
 
 <style scoped>

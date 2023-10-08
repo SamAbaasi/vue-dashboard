@@ -100,6 +100,7 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import { validations } from "./constants";
 import { TRANSLATIONS } from "./constants";
 import { LoginDataTypes, PageTranslations } from "./types";
@@ -111,7 +112,7 @@ import {
 import "@/utils/validationRules";
 setInteractionMode("eager");
 
-export default {
+export default Vue.extend({
   name: "SignForm",
   components: {
     ValidationProvider,
@@ -174,7 +175,7 @@ export default {
       this.$emit("form-submit", this.formData);
     },
   },
-};
+});
 </script>
 <style lang="scss" scoped>
 .SignForm {

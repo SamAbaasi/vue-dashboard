@@ -10,11 +10,12 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import SignForm from "@/components/SignForm/SignForm.vue";
 import store from "@/store";
 import { UserData } from "@/types/user";
 import Toast from "@/components/Toast/ToastView.vue";
-export default {
+export default Vue.extend({
   name: "LoginView",
   components: {
     SignForm,
@@ -44,5 +45,5 @@ export default {
       });
     },
   },
-};
+});
 </script>

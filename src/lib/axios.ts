@@ -1,6 +1,13 @@
-import axios, { AxiosError } from "axios";
-const API_URL = "https://api.realworld.io/api";
+import axios, { AxiosError, AxiosResponse } from "axios";
 import store from "@/store";
+
+interface ApiResponse<T> {
+  data?: T;
+  errors?: Record<string, string[]>;
+  message?: string;
+}
+
+const API_URL = "https://api.realworld.io/api";
 
 const axiosInstance = axios.create({
   baseURL: API_URL,
@@ -19,7 +26,7 @@ function handleApiError(error: AxiosError) {
     const { status, data } = response;
     console.error("API Error Status:", status);
 
-    const errorsData = data?.errors;
+    const errorsData = (data as any)?.errors;
 
     if (errorsData) {
       for (const key in errorsData) {
@@ -35,7 +42,7 @@ function handleApiError(error: AxiosError) {
       }
     } else {
       // Dispatch a general error message for other errors
-      const errorMessage = data?.message || "An error occurred";
+      const errorMessage = (data as any)?.message || "An error occurred";
       store.dispatch("addToast", {
         message: errorMessage,
         variant: "danger",
@@ -76,10 +83,10 @@ axiosInstance.interceptors.request.use(
 );
 
 axiosInstance.interceptors.response.use(
-  (response) => {
+  (response: AxiosResponse<ApiResponse<any>>) => {
     return response;
   },
-  (error) => {
+  (error: AxiosError) => {
     handleApiError(error);
     return Promise.reject(error);
   }

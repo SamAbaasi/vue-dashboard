@@ -14,12 +14,13 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import TableView from "@/components/TableView/TableView.vue";
 import { fields } from "@/views/Home/constants";
 import { getAllArticles } from "@/API/articlesApi";
 import { ArticlesData } from "@/types/articles";
 import useAPI from "@/Hooks/useApi";
-export default {
+export default Vue.extend({
   components: {
     TableView,
   },
@@ -58,5 +59,5 @@ export default {
       }
     },
   },
-};
+});
 </script>

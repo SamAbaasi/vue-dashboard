@@ -21,9 +21,10 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import router from "@/router";
 
-export default {
+export default Vue.extend({
   computed: {
     activeTab(): string {
       const routeName = this.$route.name;
@@ -45,7 +46,7 @@ export default {
       }
     },
   },
-};
+});
 </script>
 <style lang="scss" scoped>
 .sidebar {

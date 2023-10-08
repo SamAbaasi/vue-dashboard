@@ -127,12 +127,13 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import { deleteArticle } from "@/API/articlesApi";
 import useAPI from "@/Hooks/useApi";
 import { ArticleData } from "@/types/articles";
 import store from "@/store";
 
-export default {
+export default Vue.extend({
   components: {},
   props: {
     articles: {
@@ -196,7 +197,7 @@ export default {
       this.$root.$emit("bv::hide::modal", this.infoModal.id);
     },
   },
-};
+});
 </script>
 <style lang="scss" scoped>
 .edit-btn:hover {

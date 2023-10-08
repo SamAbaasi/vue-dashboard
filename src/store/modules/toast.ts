@@ -1,5 +1,5 @@
 import { Commit, GetterTree } from "vuex";
-import { v4 as uuidv4 } from "uuid"; // Import the uuid package
+import { v4 as uuidv4 } from "uuid";
 
 interface ToastState {
   toasts: Array<Toast>;

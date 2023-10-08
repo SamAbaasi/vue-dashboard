@@ -26,10 +26,11 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import { UserType } from "@/types/user";
 import { PropType } from "vue";
 
-export default {
+export default Vue.extend({
   props: {
     user: {
       type: Object as PropType<UserType | null>,
@@ -41,5 +42,5 @@ export default {
       this.$emit("logout");
     },
   },
-};
+});
 </script>
