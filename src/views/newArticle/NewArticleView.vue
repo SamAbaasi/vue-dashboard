@@ -2,9 +2,9 @@
   <div class="edit-article">
     <ArticleForm
       :article="article"
-      :isEditing="false"
-      @submit-article="submitArticle"
+      :is-editing="false"
       :loading="loading"
+      @submit-article="submitArticle"
     />
   </div>
 </template>

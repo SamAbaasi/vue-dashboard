@@ -1,7 +1,14 @@
 <template>
-  <b-container fluid class="px-0">
+  <b-container
+    fluid
+    class="px-0"
+  >
     <!-- Skeleton loading state -->
-    <b-skeleton-table v-if="loading" :rows="5" :columns="5"></b-skeleton-table>
+    <b-skeleton-table
+      v-if="loading"
+      :rows="5"
+      :columns="5"
+    />
     <!-- Main table element -->
     <template v-else-if="articles && articles.length > 0">
       <b-table
@@ -18,15 +25,21 @@
           {{ data.index + 1 }}
         </template>
         <template #cell(actions)="row">
-          <b-dropdown class="mx-1 my-0 p-0" variant="info" right text="...">
+          <b-dropdown
+            class="mx-1 my-0 p-0"
+            variant="info"
+            right
+            text="..."
+          >
             <b-dropdown-item>
               <router-link
                 class="edit-btn text-dark"
                 :to="`/articles/${row.item.slug}`"
-                >Edit
+              >
+                Edit
               </router-link>
             </b-dropdown-item>
-            <b-dropdown-divider></b-dropdown-divider>
+            <b-dropdown-divider />
             <b-dropdown-item @click="info(row.item, $event.target)">
               Delete
             </b-dropdown-item>
@@ -42,7 +55,11 @@
     </template>
     <!-- User Interface controls -->
     <b-row align-h="center">
-      <b-col sm="6" md="6" class="my-1">
+      <b-col
+        sm="6"
+        md="6"
+        class="my-1"
+      >
         <template v-if="!loading && articles && articles.length > 0">
           <b-pagination
             v-model="currentPage"
@@ -53,14 +70,14 @@
             class=""
             first-number
             last-number
-          ></b-pagination>
+          />
         </template>
         <template v-else-if="loading">
           <div class="d-flex flex-row">
-            <b-skeleton type="button"></b-skeleton>
-            <b-skeleton type="button"></b-skeleton>
-            <b-skeleton type="button"></b-skeleton>
-            <b-skeleton type="button"></b-skeleton>
+            <b-skeleton type="button" />
+            <b-skeleton type="button" />
+            <b-skeleton type="button" />
+            <b-skeleton type="button" />
           </div>
         </template>
       </b-col>
@@ -71,8 +88,8 @@
       :id="infoModal.id"
       centered
       title="Delete Article"
+      ok-size="lg"
       @hide="resetInfoModal"
-      okSize="lg"
     >
       <p>Are you sure to delete Article?</p>
       <template #modal-footer="{ cancel }">
@@ -83,7 +100,7 @@
           @click="cancel"
         >
           <span v-if="loadingDelete">
-            <b-spinner small></b-spinner>
+            <b-spinner small />
           </span>
           <span v-else> No </span>
         </b-button>
@@ -94,13 +111,18 @@
           @click="deleteArticleAction(infoModal.slug)"
         >
           <span v-if="loadingDelete">
-            <b-spinner small></b-spinner>
+            <b-spinner small />
           </span>
           <span v-else> Yes </span>
         </b-button>
       </template>
     </b-modal>
-    <b-toast id="home-toast" variant="success" solid :title="toastMessage" />
+    <b-toast
+      id="home-toast"
+      variant="success"
+      solid
+      :title="toastMessage"
+    />
   </b-container>
 </template>
 
@@ -113,9 +135,18 @@ import store from "@/store";
 export default {
   components: {},
   props: {
-    articles: Array,
-    fields: Array,
-    totalRows: Number,
+    articles: {
+      type: Array,
+      default: () => [],
+    },
+    fields: {
+      type: Array,
+      default: () => [],
+    },
+    totalRows: {
+      type: Number,
+      default: 0,
+    },
     loading: Boolean,
   },
   data() {

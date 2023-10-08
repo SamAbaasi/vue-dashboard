@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1 class="text-left mb-4">All Posts</h1>
+    <h1 class="text-left mb-4">
+      All Posts
+    </h1>
     <TableView
       :loading="loading"
       :articles="articles"

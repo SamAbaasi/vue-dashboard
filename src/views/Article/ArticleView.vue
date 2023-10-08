@@ -3,8 +3,8 @@
     <article-form
       :article="article"
       :is-editing="true"
-      @submit-article="submitArticle"
       :loading="loading"
+      @submit-article="submitArticle"
     />
   </div>
 </template>

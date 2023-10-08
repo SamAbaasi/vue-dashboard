@@ -2,15 +2,19 @@
   <div
     class="sidebar d-flex flex-column justify-content-start align-items-start text-light"
   >
-    <h3 class="sidebar-title">Post</h3>
+    <h3 class="sidebar-title">
+      Post
+    </h3>
     <b-nav vertical>
       <b-nav-item
         v-for="route in dynamicTabRoutes"
         :key="route.name"
-        @click="navigateTo(route.name)"
         :active="activeTab === route.name"
+        @click="navigateTo(route.name)"
       >
-        <p class="sidebar-item-text">{{ route.title }}</p>
+        <p class="sidebar-item-text">
+          {{ route.title }}
+        </p>
       </b-nav-item>
     </b-nav>
   </div>

@@ -1,12 +1,18 @@
 <template>
   <div>
-    <navbar-view :user="user" @logout="handleLogout" />
+    <navbar-view
+      :user="user"
+      @logout="handleLogout"
+    />
     <div class="d-flex">
       <sidebar-view />
-      <b-container fluid class="router-container">
+      <b-container
+        fluid
+        class="router-container"
+      >
         <!-- This is where the routed components will be displayed -->
         <Toast />
-        <router-view></router-view>
+        <router-view />
       </b-container>
     </div>
   </div>

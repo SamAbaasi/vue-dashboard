@@ -1,15 +1,20 @@
 <!-- eslint-disable vue/no-mutating-props -->
 <template>
   <div>
-    <div class="article-form" v-if="!localLoading">
-      <h2 class="text-dark">{{ formTitle }}</h2>
+    <div
+      v-if="!localLoading"
+      class="article-form"
+    >
+      <h2 class="text-dark">
+        {{ formTitle }}
+      </h2>
       <ValidationObserver v-slot="{ handleSubmit }">
         <b-form class="row gap-2">
           <div class="col-9">
             <ValidationProvider
+              v-slot="validationTitle"
               name="Title"
               rules="required"
-              v-slot="validationTitle"
             >
               <b-form-group
                 id="title"
@@ -23,16 +28,16 @@
                   type="text"
                   :placeholder="TRANSLATIONS.title"
                   :state="getValidationState(validationTitle)"
-                ></b-form-input>
+                />
                 <b-form-invalid-feedback>
                   {{ validationTitle.errors[0] }}
                 </b-form-invalid-feedback>
               </b-form-group>
             </ValidationProvider>
             <ValidationProvider
+              v-slot="validationDesc"
               name="Description"
               rules="required"
-              v-slot="validationDesc"
             >
               <b-form-group
                 id="description"
@@ -46,16 +51,16 @@
                   type="text"
                   :placeholder="TRANSLATIONS.desc"
                   :state="getValidationState(validationDesc)"
-                ></b-form-input>
+                />
                 <b-form-invalid-feedback>
                   {{ validationDesc.errors[0] }}
                 </b-form-invalid-feedback>
               </b-form-group>
             </ValidationProvider>
             <ValidationProvider
+              v-slot="validationBody"
               name="Body"
               rules="required"
-              v-slot="validationBody"
             >
               <b-form-group
                 id="body"
@@ -69,7 +74,7 @@
                   rows="7"
                   :placeholder="TRANSLATIONS.body"
                   :state="getValidationState(validationBody)"
-                ></b-form-textarea>
+                />
                 <b-form-invalid-feedback>
                   {{ validationBody.errors[0] }}
                 </b-form-invalid-feedback>
@@ -89,20 +94,25 @@
                   v-model="newTag"
                   :placeholder="TRANSLATIONS.newTag"
                   @keyup.enter="addTag"
-                ></b-form-input>
+                />
               </b-input-group>
             </b-form-group>
             <b-form-checkbox-group
+              v-model="selectedTags"
               class="tags"
               :options="tagOptions"
-              v-model="selectedTags"
             />
           </div>
 
           <div class="submit-btn">
-            <b-button @click="handleSubmit(submitForm)" variant="primary">{{
-              TRANSLATIONS.submit
-            }}</b-button>
+            <b-button
+              variant="primary"
+              @click="handleSubmit(submitForm)"
+            >
+              {{
+                TRANSLATIONS.submit
+              }}
+            </b-button>
           </div>
         </b-form>
       </ValidationObserver>

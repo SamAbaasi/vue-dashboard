@@ -1,7 +1,11 @@
 <template>
   <div>
     <Toast padding />
-    <SignForm :type="'register'" :loading="loading" @form-submit="register" />
+    <SignForm
+      :type="'register'"
+      :loading="loading"
+      @form-submit="register"
+    />
   </div>
 </template>
 

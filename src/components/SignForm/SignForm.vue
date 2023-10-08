@@ -1,13 +1,16 @@
 <template>
   <div class="SignForm">
-    <b-card :title="formTranslations.title" class="SignForm-card">
+    <b-card
+      :title="formTranslations.title"
+      class="SignForm-card"
+    >
       <ValidationObserver v-slot="{ handleSubmit }">
         <b-form @submit.stop.prevent="handleSubmit(submitForm)">
           <ValidationProvider
             v-if="isRegister"
+            v-slot="validationUser"
             name="User"
             rules="required|alpha|min:4"
-            v-slot="validationUser"
           >
             <b-form-group
               :label="formData.TRANSLATIONS.user"
@@ -19,16 +22,16 @@
                 v-model="formData.username"
                 type="text"
                 :state="getValidationState(validationUser)"
-              ></b-form-input>
+              />
               <b-form-invalid-feedback>
                 {{ validationUser.errors[0] }}
               </b-form-invalid-feedback>
             </b-form-group>
           </ValidationProvider>
           <ValidationProvider
+            v-slot="validationEmail"
             name="Email"
             rules="required|email"
-            v-slot="validationEmail"
           >
             <b-form-group
               :label="formData.TRANSLATIONS.email"
@@ -40,16 +43,16 @@
                 v-model="formData.email"
                 type="email"
                 :state="getValidationState(validationEmail)"
-              ></b-form-input>
+              />
               <b-form-invalid-feedback>
                 {{ validationEmail.errors[0] }}
               </b-form-invalid-feedback>
             </b-form-group>
           </ValidationProvider>
           <ValidationProvider
+            v-slot="validationPassword"
             name="Password"
             :rules="passwordRules"
-            v-slot="validationPassword"
           >
             <b-form-group
               :label="formData.TRANSLATIONS.password"
@@ -58,10 +61,10 @@
             >
               <b-form-input
                 id="password"
-                type="password"
                 v-model="formData.password"
+                type="password"
                 :state="getValidationState(validationPassword)"
-              ></b-form-input>
+              />
               <b-form-invalid-feedback>
                 {{ validationPassword.errors[0] }}
               </b-form-invalid-feedback>
@@ -75,7 +78,7 @@
             :disabled="isLoading"
           >
             <span v-if="isLoading">
-              <b-spinner small></b-spinner>
+              <b-spinner small />
             </span>
             <span v-else>
               {{ formTranslations.btn }}
@@ -87,8 +90,7 @@
               <router-link
                 class="font-weight-bold ml-2 link"
                 :to="footerLink"
-                >{{ formTranslations.footerAction }}</router-link
-              >
+              >{{ formTranslations.footerAction }}</router-link>
             </span>
           </p>
         </b-form>

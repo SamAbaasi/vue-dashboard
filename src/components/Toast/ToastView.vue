@@ -9,7 +9,10 @@
         :variant="toast.variant"
         :class="['custom-toast', toastClass]"
       >
-        <span v-if="toast.boldMessage" class="font-weight-bold mr-1">{{
+        <span
+          v-if="toast.boldMessage"
+          class="font-weight-bold mr-1"
+        >{{
           toast.boldMessage
         }}</span>
         {{ toast.message }}

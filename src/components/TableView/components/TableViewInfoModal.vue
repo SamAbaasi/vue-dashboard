@@ -5,8 +5,8 @@
     :id="infoModal.id"
     centered
     title="Delete Article"
+    ok-size="lg"
     @hide="resetInfoModal"
-    okSize="lg"
   >
     <p>Are you sure to delete Article?</p>
     <template #modal-footer="{ cancel }">
@@ -17,7 +17,7 @@
         @click="cancel"
       >
         <span v-if="loadingDelete">
-          <b-spinner small></b-spinner>
+          <b-spinner small />
         </span>
         <span v-else> No </span>
       </b-button>
@@ -28,7 +28,7 @@
         @click="deleteArticleAction(infoModal.slug)"
       >
         <span v-if="loadingDelete">
-          <b-spinner small></b-spinner>
+          <b-spinner small />
         </span>
         <span v-else> Yes </span>
       </b-button>
