@@ -17,7 +17,7 @@
 import Vue from "vue";
 import TableView from "@/components/TableView/TableView.vue";
 import { fields } from "@/views/Home/constants";
-import { getAllArticles } from "@/API/articlesApi";
+import { getAllArticles } from "@/API/articles";
 import { ArticlesData } from "@/types/articles";
 import useAPI from "@/Hooks/useApi";
 export default Vue.extend({

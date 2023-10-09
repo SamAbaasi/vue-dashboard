@@ -52,7 +52,7 @@ export default Vue.extend({
 .sidebar {
   width: 250px;
   background-color: #1c7cd5;
-  height: calc(100vh - 56px);
+  min-height: calc(100vh - 56px);
   color: #fff;
 }
 .sidebar-title {

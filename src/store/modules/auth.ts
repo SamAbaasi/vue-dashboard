@@ -4,7 +4,7 @@ import {
   loginAndRememberToken,
   updateUser,
   registerUser,
-} from "@/API/authApi";
+} from "@/API/auth";
 import router from "@/router";
 import { UserType, UserData, UserRegisterData } from "@/types/user";
 import { MutationTree, ActionTree, GetterTree } from "vuex";
@@ -51,7 +51,7 @@ const actions: ActionTree<AuthState, unknown> = {
       if (token) {
         commit("SET_TOKEN", token);
         commit("SET_USER", response.user); // Save the user information
-        router.push({ name: "home" }); // Assuming "home" is the name of your home route
+        router.push({ name: "home" });
         return token;
       }
       // Handle cases where the API response does not contain a token
@@ -67,7 +67,7 @@ const actions: ActionTree<AuthState, unknown> = {
     if (token) {
       commit("SET_TOKEN", token);
       commit("SET_USER", response.user); // Save the user information
-      router.push({ name: "home" }); // Assuming "home" is the name of your home route
+      router.push({ name: "home" });
     }
     return token;
   },
@@ -93,7 +93,7 @@ const actions: ActionTree<AuthState, unknown> = {
     if (token) {
       commit("SET_TOKEN", token);
       commit("SET_USER", response.user); // Save the user information
-      router.push({ name: "home" }); // Assuming "home" is the name of your home route
+      router.push({ name: "home" });
     }
     return token;
   },

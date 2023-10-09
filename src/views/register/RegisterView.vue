@@ -1,12 +1,9 @@
 <template>
-  <div>
-    <Toast padding />
-    <SignForm
-      :type="'register'"
-      :loading="loading"
-      @form-submit="register"
-    />
-  </div>
+  <SignForm
+    :type="'register'"
+    :loading="loading"
+    @form-submit="register"
+  />
 </template>
 
 <script lang="ts">
@@ -14,13 +11,11 @@ import Vue from "vue";
 import SignForm from "@/components/SignForm/SignForm.vue";
 import store from "@/store";
 import { UserData } from "@/types/user";
-import Toast from "@/components/Toast/ToastView.vue";
 
 export default Vue.extend({
   name: "RegisterView",
   components: {
     SignForm,
-    Toast,
   },
   data() {
     return {

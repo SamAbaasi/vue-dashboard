@@ -10,8 +10,8 @@
         fluid
         class="router-container"
       >
-        <!-- This is where the routed components will be displayed -->
         <Toast />
+        <!-- This is where the routed components will be displayed -->
         <router-view />
       </b-container>
     </div>
@@ -44,7 +44,6 @@ export default {
     // ...mapActions("auth", ["logout"]),
     handleLogout() {
       store.dispatch("logout");
-      // this.logout();
       router.push({ name: LOGIN });
     },
   },

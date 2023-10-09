@@ -12,7 +12,7 @@
 <script lang="ts">
 import Vue from "vue";
 import ArticleForm from "@/components/ArticleForm/ArticleForm.vue";
-import { getArticle, editArticle } from "@/API/articlesApi";
+import { getArticle, editArticle } from "@/API/articles";
 import { ArticleData } from "@/types/articles";
 import useAPI from "@/Hooks/useApi";
 

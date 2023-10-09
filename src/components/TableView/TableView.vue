@@ -128,7 +128,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { deleteArticle } from "@/API/articlesApi";
+import { deleteArticle } from "@/API/articles";
 import useAPI from "@/Hooks/useApi";
 import { ArticleData } from "@/types/articles";
 import store from "@/store";

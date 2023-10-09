@@ -2,7 +2,8 @@ import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import store from "@/store";
 import * as paths from "@/routes";
-import AppLayout from "@/components/AppLayout/AppLayout.vue";
+import AppLayout from "@/Layouts/AppLayout/AppLayout.vue";
+import SignLayout from "@/Layouts/SignLayout/SignLayout.vue";
 
 Vue.use(VueRouter);
 
@@ -37,17 +38,29 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: paths.LOGIN,
-    name: "login",
-    component: () =>
-      import(/* webpackChunkName: "login" */ "@/views/login/LoginView.vue"),
+    component: SignLayout,
+    children: [
+      {
+        path: "",
+        name: "login",
+        component: () =>
+          import(/* webpackChunkName: "login" */ "@/views/login/LoginView.vue"),
+      },
+    ],
   },
   {
     path: paths.REGISTER,
-    name: "register",
-    component: () =>
-      import(
-        /* webpackChunkName: "register" */ "@/views/register/RegisterView.vue"
-      ),
+    component: SignLayout,
+    children: [
+      {
+        path: "",
+        name: "register",
+        component: () =>
+          import(
+            /* webpackChunkName: "register" */ "@/views/register/RegisterView.vue"
+          ),
+      },
+    ],
   },
 ];
 
