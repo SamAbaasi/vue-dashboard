@@ -62,6 +62,14 @@ const routes: Array<RouteConfig> = [
       },
     ],
   },
+
+  // Fallback "not found" route for all other unmatched paths
+  {
+    path: "*",
+    name: "not-found",
+    component: () =>
+      import(/* webpackChunkName: "notFound" */ "@/views/404/NotFoundView.vue"),
+  },
 ];
 
 const router = new VueRouter({
@@ -71,7 +79,11 @@ const router = new VueRouter({
 // Add a global navigation guard
 router.beforeEach(async (to, from, next) => {
   const isAuthenticated = store.getters.isLoggedIn;
-
+  if (to.matched.length === 0) {
+    // If no route matches the destination, it's a 404
+    next({ name: "not-found" });
+    return;
+  } 
   if (to.name === "login" && isAuthenticated) {
     // Redirect authenticated users away from the login page
     next({ name: "home" });

@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from "axios";
 import store from "@/store";
+import router from "@/router";
 
 interface ApiResponse<T> {
   data?: T;
@@ -27,6 +28,12 @@ function handleApiError(error: AxiosError) {
     console.error("API Error Status:", status);
 
     const errorsData = (data as any)?.errors;
+
+    if (status === 404) {
+      // Redirect to the Not Found page
+      router.push({ name: "not-found" });
+      return;
+    }
 
     if (errorsData) {
       for (const key in errorsData) {
