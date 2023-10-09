@@ -22,17 +22,6 @@ export default Vue.extend({
     };
   },
   methods: {
-    getValidationState({
-      dirty,
-      validated,
-      valid = null,
-    }: {
-      dirty: boolean;
-      validated: boolean;
-      valid?: null | boolean;
-    }) {
-      return dirty || validated ? valid : null;
-    },
     async login(userData: UserData) {
       this.loading = true;
       await store.dispatch("login", userData).finally(() => {
