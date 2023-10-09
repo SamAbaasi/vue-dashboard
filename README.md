@@ -2,6 +2,10 @@
 
 Welcome to the Vue.js Dashboard application! This repository contains the source code for a versatile Vue.js application that serves as a dashboard for managing various aspects of your project. Whether you're looking to set up the project locally or explore its architecture, this README provides a detailed guide to get you started.
 
+## Demo
+
+**Live Demo**: [View Live Demo](https://vue-dashboard-ts.vercel.app/)
+
 ## Getting Started
 
 To begin using this Vue.js dashboard application, follow these simple steps:
@@ -25,46 +29,6 @@ To begin using this Vue.js dashboard application, follow these simple steps:
     npm run server
 
 
-## Folder Structure
-
-The project structure is organized as follows:
-
-vue-dashboard/
-
-├── src/
-
-│ ├── API/ # Contains API functions
-
-│ ├── components/ # Reusable components
-
-│ ├── Hooks/ # Reusable hooks such as useAPI
-
-│ ├── Layouts/ # Layouts for diffrent routes
-
-│ ├── lib/ # Utility functions and constants
-
-│ ├── router/ # router setup and configs
-
-│ ├── store/ # Vuex store setup and modules
-
-│ ├── types/ # TypeScript type declarations
-
-│ ├── views # pages
-
-│ ├── App.vue # Main application component
-
-│ ├── main.ts # Entry point
-
-│ └── ... # Other files and folders
-
-├── public/: # Includes public assets and static files.
-
-├── package.json and package-lock.json: Define project dependencies and versions.
-
-└── README.md # You're currently reading it! This README provides detailed information about the project's structure, features, and usage.
-
-
-
 ## Technologies Used
 
 This Vue.js dashboard application leverages various technologies and libraries to deliver a powerful and responsive user experience. Here's a list of the key technologies used:
@@ -86,6 +50,30 @@ This Vue.js dashboard application comes packed with features that make it a powe
 - **Vue Router Configuration**: A well-structured Vue Router setup with route guards and a "not-found" route for a secure and user-friendly navigation experience.
 - **Axios Configuration**: Axios setup for handling API errors, including 404 redirection and pushing toasts for error feedback.
 Each of these features is meticulously implemented to enhance the overall functionality and user experience of the Vue.js dashboard application.
+
+## Folder Structure
+
+The project structure is organized as follows:
+
+vue-dashboard/
+ ```
+├── src/
+│ ├── API/ # Contains API functions
+│ ├── components/ # Reusable components
+│ ├── Hooks/ # Reusable hooks such as useAPI
+│ ├── Layouts/ # Layouts for diffrent routes
+│ ├── lib/ # Utility functions and constants
+│ ├── router/ # router setup and configs
+│ ├── store/ # Vuex store setup and modules
+│ ├── types/ # TypeScript type declarations
+│ ├── views # pages
+│ ├── App.vue # Main application component
+│ ├── main.ts # Entry point
+│ └── ... # Other files and folders
+├── public/: # Includes public assets and static files.
+├── package.json and package-lock.json: Define project dependencies and versions.
+└── README.md # You're currently reading it! This README provides detailed information about the project's structure, features, and usage.
+```
 
 # Toast Component
 
