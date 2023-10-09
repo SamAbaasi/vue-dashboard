@@ -133,11 +133,9 @@ import ArticleFormSkeleton from "@/components/ArticleForm/components/ArticlePage
 import {
   ValidationProvider,
   ValidationObserver,
-  setInteractionMode,
 } from "vee-validate";
 import "@/utils/validationRules";
 import useAPI from "@/Hooks/useApi";
-setInteractionMode("eager");
 
 export default Vue.extend({
   components: {

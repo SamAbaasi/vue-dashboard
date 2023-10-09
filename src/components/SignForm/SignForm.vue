@@ -21,6 +21,7 @@
                 id="user"
                 v-model="formData.username"
                 type="text"
+                placeholder="User Name"
                 :state="getValidationState(validationUser)"
               />
               <b-form-invalid-feedback>
@@ -42,6 +43,7 @@
                 id="email"
                 v-model="formData.email"
                 type="email"
+                placeholder="example@mail.com"
                 :state="getValidationState(validationEmail)"
               />
               <b-form-invalid-feedback>
@@ -63,6 +65,7 @@
                 id="password"
                 v-model="formData.password"
                 type="password"
+                placeholder="password"
                 :state="getValidationState(validationPassword)"
               />
               <b-form-invalid-feedback>
@@ -101,17 +104,13 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { validations } from "./constants";
 import { TRANSLATIONS } from "./constants";
 import { LoginDataTypes, PageTranslations } from "./types";
 import {
   ValidationProvider,
   ValidationObserver,
-  setInteractionMode,
 } from "vee-validate";
 import "@/utils/validationRules";
-setInteractionMode("eager");
-
 export default Vue.extend({
   name: "SignForm",
   components: {
@@ -135,7 +134,6 @@ export default Vue.extend({
         password: "",
         username: "",
         TRANSLATIONS,
-        validations,
       } as LoginDataTypes,
     };
   },

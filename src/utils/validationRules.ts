@@ -1,4 +1,4 @@
-import { extend, configure } from "vee-validate";
+import { extend, configure, setInteractionMode } from "vee-validate";
 import {
   required,
   email,
@@ -27,4 +27,16 @@ extend("password", {
   },
   message:
     "The password must contain at least one uppercase letter, and one lowercase letter, and be 4 to 10 characters long.Plz consider that you cant use space.",
+});
+
+setInteractionMode('custom', ({errors}) => {
+  if (errors) {
+    return {
+      on: ['input', 'change', 'blur']
+    };
+  }
+
+  return {
+    on: ['input', 'change', 'blur']
+  };
 });

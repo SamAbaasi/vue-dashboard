@@ -23,5 +23,4 @@ export interface LoginDataTypes {
   password: string;
   username?: string;
   TRANSLATIONS: TranslationsTypes;
-  validations: validationsTypes;
 }
