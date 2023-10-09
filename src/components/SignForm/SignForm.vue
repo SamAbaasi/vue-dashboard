@@ -166,7 +166,6 @@ export default Vue.extend({
     }) {
       return dirty || validated ? valid : null;
     },
-    //improve validations add global methods for validations
     submitForm() {
       this.$emit("form-submit", this.formData);
     },

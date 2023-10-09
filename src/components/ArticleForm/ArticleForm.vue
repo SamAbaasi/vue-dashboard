@@ -126,7 +126,7 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { Article, ArticleFormData } from "./types"; // Import your types
+import { Article, ArticleFormData } from "./types";
 import { getAllTags } from "@/API/tags";
 import { TRANSLATIONS } from "@/components/ArticleForm/constants";
 import ArticleFormSkeleton from "@/components/ArticleForm/components/ArticlePageSkeleton.vue";

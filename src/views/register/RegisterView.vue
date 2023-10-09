@@ -34,7 +34,6 @@ export default Vue.extend({
     }) {
       return dirty || validated ? valid : null;
     },
-    //improve validations add global methods for validations
     async register(userData: UserData) {
       this.loading = true;
       await store.dispatch("register", userData).finally(() => {

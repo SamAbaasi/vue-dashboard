@@ -59,7 +59,6 @@ const mutations = {
   },
 };
 
-// Define actions
 const actions = {
   addToast(
     { commit }: { commit: Commit },
@@ -73,7 +72,6 @@ const actions = {
   },
 };
 
-// Create the toast module
 const toastModule = {
   state,
   mutations,
