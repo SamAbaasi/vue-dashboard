@@ -1,4 +1,91 @@
-# dashboard
+# Vue.js Dashboard Application
+
+Welcome to the Vue.js Dashboard application! This repository contains the source code for a versatile Vue.js application that serves as a dashboard for managing various aspects of your project. Whether you're looking to set up the project locally or explore its architecture, this README provides a detailed guide to get you started.
+
+## Getting Started
+
+To begin using this Vue.js dashboard application, follow these simple steps:
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/SamanAbasi/vue-dashboard
+    cd vue-dashboard
+
+
+2. Install the dependencies:
+
+   ```bash
+    npm install
+
+
+3. Start the development server:
+
+   ```bash
+    npm run server
+
+
+## Folder Structure
+
+The project structure is organized as follows:
+
+vue-dashboard/
+
+├── src/
+
+│ ├── API/ # Contains API functions
+
+│ ├── components/ # Reusable components
+
+│ ├── Hooks/ # Reusable hooks such as useAPI
+
+│ ├── Layouts/ # Layouts for diffrent routes
+
+│ ├── lib/ # Utility functions and constants
+
+│ ├── router/ # router setup and configs
+
+│ ├── store/ # Vuex store setup and modules
+
+│ ├── types/ # TypeScript type declarations
+
+│ ├── views # pages
+
+│ ├── App.vue # Main application component
+
+│ ├── main.ts # Entry point
+
+│ └── ... # Other files and folders
+
+├── public/: # Includes public assets and static files.
+
+├── package.json and package-lock.json: Define project dependencies and versions.
+
+└── README.md # You're currently reading it! This README provides detailed information about the project's structure, features, and usage.
+
+
+
+## Technologies Used
+
+This Vue.js dashboard application leverages various technologies and libraries to deliver a powerful and responsive user experience. Here's a list of the key technologies used:
+
+- Vue 2.7.14: A JavaScript library for building user interfaces.
+- Vuex 3.6.2: A predictable state container for managing application state.
+- Axios: A library for making HTTP requests.
+- TypeScript: A typed superset of JavaScript that enhances code quality and maintainability.
+- BootstrapVue: A library based on Bootstrap v4, for building responsive, mobile-first sites using Vue.js.
+- VeeValidate: VeeValidate is a validation framework built specifically for Vue.js and as such it makes some assumptions and enforces "best-practices" for your forms while being versatile and customizable.
+- Vue CLI:Vue CLI is a full system for rapid Vue.js development.
+
+## Features
+This Vue.js dashboard application comes packed with features that make it a powerful tool for managing and visualizing data. Here's a glimpse of some of the key features:
+
+- **Toast Component**: An elegant way to display temporary messages or notifications to users. Customizable, user-friendly, and automatically removed after a predefined duration.
+- **useAPI Function**: A custom Vue Composition API function designed for simplified API requests and effortless loading state management.
+- **Vee-Validate Integration**: Seamlessly integrated Vee-Validate for form validation, including custom validation rules.
+- **Vue Router Configuration**: A well-structured Vue Router setup with route guards and a "not-found" route for a secure and user-friendly navigation experience.
+- **Axios Configuration**: Axios setup for handling API errors, including 404 redirection and pushing toasts for error feedback.
+Each of these features is meticulously implemented to enhance the overall functionality and user experience of the Vue.js dashboard application.
 
 # Toast Component
 
@@ -114,35 +201,28 @@ Here's how the `useAPI` function works:
 Here's an example of how you can use the `useAPI` function in your Vue.js application:
 
 ```javascript
-import { ref, Ref } from "vue";
-import useAPI, { UseApiProps, UseApiReturnType } from "./useAPI"; // Import the useAPI function
+import useAPI from "@/Hooks/useAPI"; // Import the useAPI function
 
-// Define the API method you want to use
-async function fetchUserData(params?: Record<string, any>) {
-  // Make your API request here
-  const response = await someApiFunction(params);
-  return response.data;
-}
-
-// Create a success callback function to handle the API response
-function handleSuccess(data: any) {
-  // Do something with the data, e.g., update your component's state
-}
-
-// Create a failed callback function to handle API errors
-function handleFailure(error: any) {
-  // Handle the error, e.g., display an error message to the user
-}
-
-// Define the API configuration
-const apiConfig: UseApiProps<ResponseType> = {
-  apiMethod: fetchUserData,
-  successCallback: handleSuccess,
-  failedCallback: handleFailure,
-};
-
-// Use the useAPI function to create an API request hook
-const { pending, request }: UseApiReturnType<ResponseType> = useAPI(apiConfig);
+async deleteArticleAction(slug: string) {
+      this.loadingDelete = true;
+      const { request } = useAPI({
+        apiMethod: () => deleteArticle(slug),
+        successCallback: () => {
+          this.hideModal();
+          this.$emit("fetch-articles");
+        },
+        failedCallback: (error) => {
+          this.loadingDelete = false;
+          this.hideModal();
+          store.dispatch("addToast", {
+            message: error,
+            variant: "danger",
+          });
+        },
+      });
+      await request();
+      this.loadingDelete = false;
+    },
 
 // In your Vue component, you can use the 'pending' variable to manage loading states
 // and invoke the 'request' function to make API requests
@@ -150,7 +230,7 @@ const { pending, request }: UseApiReturnType<ResponseType> = useAPI(apiConfig);
 
 # Vee-Validate Integration and Custom Rules
 
-In this section, we'll explore how Vee-Validate is integrated into your Vue.js component and how custom validation rules are used. We'll also discuss the reasons for using Vee-Validate and the custom rules you've created.
+In this section, we'll explore how Vee-Validate is integrated into my Vue.js component and how custom validation rules are used. We'll also discuss the reasons for using Vee-Validate and the custom rules I've created.
 
 ## Table of Contents
 
@@ -160,11 +240,11 @@ In this section, we'll explore how Vee-Validate is integrated into your Vue.js c
 
 ## Vee-Validate Integration
 
-In your Vue.js component, you've integrated the Vee-Validate library for form validation. Vee-Validate is a popular library that simplifies form validation in Vue applications by providing a set of built-in validation rules and a way to create custom rules.
+In my Vue.js component, i've integrated the Vee-Validate library for form validation. Vee-Validate is a popular library that simplifies form validation in Vue applications by providing a set of built-in validation rules and a way to create custom rules.
 
 ### 1. Import
 
-You import Vee-Validate functions and rules at the beginning of your script section:
+I import Vee-Validate functions and rules at the beginning of my script section:
 
 ```javascript
 import {
@@ -176,7 +256,7 @@ import "@/utils/validationRules";
 setInteractionMode("eager");
 ```
 ### 2. Components
-You register the ValidationProvider and ValidationObserver components to use them within your template:
+I register the ValidationProvider and ValidationObserver components to use them within my template:
 ```javascript
 components: {
   ValidationProvider,
@@ -184,19 +264,19 @@ components: {
 },
 ```
 ### 3. Validation Rules
-You configure validation rules for your form inputs using the **rules** attribute in your template. For example, you've set rules for "User," "Email," and "Password" inputs using **ValidationProvider**.
+I configure validation rules for my form inputs using the **rules** attribute in my template. For example, i've set rules for "User," "Email," and "Password" inputs using **ValidationProvider**.
 
 ### 4. Custom Rules
-You've also created custom validation rules. For instance, you've defined a custom rule for the "password" field to ensure it contains at least one uppercase letter, one lowercase letter, and meets specific length criteria. This custom rule is added to Vee-Validate using **extend**.
+I've also created custom validation rules. For instance, i've defined a custom rule for the "password" field to ensure it contains at least one uppercase letter, one lowercase letter, and meets specific length criteria. This custom rule is added to Vee-Validate using **extend**.
 
 ### 5. Validation State
-You define a method **getValidationState** to determine the validation state of each input field, which is used to apply CSS classes and styles based on whether the field is valid or not.
+I define a method **getValidationState** to determine the validation state of each input field, which is used to apply CSS classes and styles based on whether the field is valid or not.
 
 ### 6. Form Submission
 The **ValidationObserver** component is used to handle form submission and validation. The **@submit.stop.prevent** event listener calls the **handleSubmit** method when the form is submitted.
 
 ## Custom Validation Rules
-You've created custom validation rules using Vee-Validate's extend function. Here are some details about the custom rule you've defined for passwords:
+I've created custom validation rules using Vee-Validate's extend function. Here are some details about the custom rule i've defined for passwords:
 
 - **Rule Name**: "password"
 - **Validation Logic**: This rule validates that the password contains at least one uppercase letter, one lowercase letter, and falls within a specific length range (4 to 10 characters). Additionally, it ensures that there are no spaces in the password.
@@ -211,7 +291,25 @@ extend("password", {
     "The password must contain at least one uppercase letter, one lowercase letter, and be 4 to 10 characters long. Please note that spaces are not allowed.",
 });
 ```
-You can reuse this custom rule in your form fields by specifying **"password"** in the **rules** attribute.
+I can reuse this custom rule in my form fields by specifying **"password"** in the **rules** attribute.
+
+## Custom Interaction Mode
+I've also implemented a custom interaction mode for Vee-Validate using the **setInteractionMode** function. The custom interaction mode triggers validation on every key enter event, I created this custom Interaction Mode because i couldent reach my goal in other modes provided by vee-validate like **eager**, **lazy** and etc. Here's the code i've used:
+
+```javascript
+setInteractionMode('custom', ({errors}) => {
+  if (errors) {
+    return {
+      on: ['input', 'change', 'blur']
+    };
+  }
+
+  return {
+    on: ['input', 'change', 'blur']
+  };
+});
+```
+This custom interaction mode ensures that validation is triggered on **"input,"** **"change,"** and **"blur"** events, providing a customized validation behavior tailored to your application's needs.
 
 ## Reasons for Using Vee-Validate
 Vee-Validate is a valuable addition to your Vue.js component for the following reasons:
@@ -250,6 +348,72 @@ I've implemented route guards using the `router.beforeEach` method. Route guards
 
 - **Allowing Navigation**: In cases where the user is authenticated and the route is not "login" or "register," navigation is allowed, and the user is directed to their desired route.
 
+## Not-Found Route
+I've included a "not-found" route to handle cases where a user navigates to a route that does not exist. This route is important for providing a user-friendly experience and ensuring that users are not left with a broken or confusing interface.
+
+```javascript
+// Fallback "not found" route for all other unmatched paths
+{
+  path: "*",
+  name: "not-found",
+  component: () =>
+    import(
+      /* webpackChunkName: "notFound" */ "@/views/404/NotFoundView.vue"
+    ),
+}
+
+```
+In this code snippet, the "not-found" route is defined with a wildcard path "*" to catch all unmatched routes. When a user accesses an undefined route, they are redirected to the "not-found" route, where they can be informed that the requested page does not exist.
+
+## SignLayout and AppLayout
+The **"SignLayout"** and **"AppLayout"** are used to provide a consistent layout for authentication-related pages, "SignLayout" for the login and registration pages and "AppLayout" for other pages such as "articles". It ensures that these pages have a common structure and appearance, enhancing the overall user experience.
+
+```javascript
+{
+  path: paths.HOME,
+  component: AppLayout,
+  children: [
+    {
+      path: "", // Empty path for the default child route
+      name: "home",
+      //..
+    },
+    {
+      path: paths.CREATE_ARTICLE,
+      name: "new-article",
+      //..
+    },
+    {
+      path: paths.ARTICLE,
+      name: "article",
+     //..
+    },
+  ],
+},
+{
+  path: paths.LOGIN,
+  component: SignLayout,
+  children: [
+    {
+      path: "",
+      name: "login",
+      //..
+    },
+  ],
+},
+{
+  path: paths.REGISTER,
+  component: SignLayout,
+  children: [
+    {
+      path: "",
+      name: "register",
+      //..
+    },
+  ],
+},
+
+```
 ## Code Splitting and Lazy Loading
 
 Code splitting and lazy loading are important for optimizing the performance of my application. By using `import()` with webpackChunkName, I create separate bundles (chunks) for each route component. This means that when a user accesses a specific route, only the necessary JavaScript for that route is loaded, reducing the initial load time.
@@ -265,3 +429,87 @@ component: () =>
 In this code, the **NewArticleView** component will be loaded as a separate chunk when the user navigates to the "new-article" route.
 
 Overall, my Vue Router setup follows best practices by implementing lazy loading, code splitting, and route guards to create a performant and secure SPA navigation experience
+
+# Axios Configuration
+In my Vue.js application, I use Axios for making HTTP requests to an API. Here's the configuration for Axios and how it handles 404 errors:
+
+In this Axios configuration:
+
+404 Redirection: When a 404 error is encountered in a response, it redirects to the "not-found" route using Vue Router (router.push({ name: "not-found" })).
+
+```javascript
+// Handle API errors
+function handleApiError(error: AxiosError) {
+  const { response, request } = error;
+
+  if (response) {
+    // Handle not-found errors (status code 404)
+    if (status === 404) {
+      // Redirect to the Not Found page
+      router.push({ name: "not-found" });
+      return;
+    }
+
+    // Handle other API errors (e.g., validation errors) and push toasts for user feedback
+    // ...
+  } else if (request) {
+    // Handle network errors and push a toast for user feedback
+    // ...
+  } else {
+    // Handle other errors and push a toast for user feedback
+    // ...
+  }
+}
+
+// ...
+
+```
+Toasts for Error Notifications: For various error scenarios, including network errors, validation errors, and general errors, the Axios configuration pushes toasts to notify the user about the issue. These toasts are dispatched using Vuex and can be displayed to the user to provide feedback about the error.
+```javascript
+function handleApiError(error: AxiosError) {
+  const { response, request } = error;
+
+  if (response) {
+    // The request was made, but the server responded with an error status code
+    const { status, data } = response;
+    const errorsData = (data as any)?.errors;
+
+        // ..
+
+    if (errorsData) {
+      for (const key in errorsData) {
+        if (Object.prototype.hasOwnProperty.call(errorsData, key)) {
+          const errorMessages = errorsData[key];
+          errorMessages.forEach((errorMessage: string) => {
+            store.dispatch("addToast", {
+              message: `${key} ${errorMessage}`,
+              variant: "danger",
+            });
+          });
+        }
+      }
+    } else {
+      // Dispatch a general error message for other errors
+      const errorMessage = (data as any)?.message || "An error occurred";
+      store.dispatch("addToast", {
+        message: errorMessage,
+        variant: "danger",
+      });
+    }
+
+  } else if (request) {
+    // The request was made, but no response was received (network error)
+    // Dispatch a toast for network errors
+    store.dispatch("addToast", {
+      message: "Network error: Unable to reach the server",
+      variant: "danger",
+    });
+  } else {
+    // Something happened in setting up the request or sending it
+    store.dispatch("addToast", {
+      message: "An error occurred: " + error.message,
+      variant: "danger",
+    });
+  }
+}
+```
