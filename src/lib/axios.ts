@@ -25,8 +25,6 @@ function handleApiError(error: AxiosError) {
   if (response) {
     // The request was made, but the server responded with an error status code
     const { status, data } = response;
-    console.error("API Error Status:", status);
-
     const errorsData = (data as any)?.errors;
 
     if (status === 404) {
@@ -56,10 +54,8 @@ function handleApiError(error: AxiosError) {
       });
     }
 
-    console.error("API Error Data:", data);
   } else if (request) {
     // The request was made, but no response was received (network error)
-    console.error("API Request Error:", "No response received");
     // Dispatch a toast for network errors
     store.dispatch("addToast", {
       message: "Network error: Unable to reach the server",
@@ -67,7 +63,6 @@ function handleApiError(error: AxiosError) {
     });
   } else {
     // Something happened in setting up the request or sending it
-    console.error("API Error:", error.message);
     store.dispatch("addToast", {
       message: "An error occurred: " + error.message,
       variant: "danger",

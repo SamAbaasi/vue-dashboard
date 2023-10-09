@@ -57,7 +57,6 @@ const actions: ActionTree<AuthState, unknown> = {
       // Handle cases where the API response does not contain a token
     } catch (error) {
       // Handle errors, e.g., show an error message
-      console.error("Login failed:", error);
       throw error;
     }
   },
