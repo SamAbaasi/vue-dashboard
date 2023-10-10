@@ -102,7 +102,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { TRANSLATIONS } from "@/constants/signForm";
+import { TRANSLATIONS } from "@/assets/constants/signForm";
 import { SignFormDataTypes, PageTranslations } from "@/types/signForm";
 import {
   ValidationProvider,

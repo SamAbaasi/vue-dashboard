@@ -128,7 +128,7 @@
 import { defineComponent } from "vue";
 import { ArticleType, ArticleFormData } from "@/types/article";
 import { getAllTags } from "@/api/tags";
-import { TRANSLATIONS } from "@/constants/articleForm";
+import { TRANSLATIONS } from "@/assets/constants/articleForm";
 import ArticleFormSkeleton from "@/components/ArticleFormSkeleton.vue";
 import {
   ValidationProvider,
