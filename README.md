@@ -58,10 +58,10 @@ The project structure is organized as follows:
 vue-dashboard/
  ```
 ├── src/
-│ ├── API/ # Contains API functions
+│ ├── api/ # Contains API functions
 │ ├── components/ # Reusable components
-│ ├── Hooks/ # Reusable hooks such as useAPI
-│ ├── Layouts/ # Layouts for diffrent routes
+│ ├── hooks/ # Reusable hooks such as useAPI
+│ ├── layouts/ # Layouts for diffrent routes
 │ ├── lib/ # Utility functions and constants
 │ ├── router/ # router setup and configs
 │ ├── store/ # Vuex store setup and modules
@@ -346,7 +346,7 @@ I've included a "not-found" route to handle cases where a user navigates to a ro
   name: "not-found",
   component: () =>
     import(
-      /* webpackChunkName: "notFound" */ "@/views/404/NotFoundView.vue"
+      /* webpackChunkName: "notFound" */ "@/views/NotFoundView.vue"
     ),
 }
 
@@ -411,7 +411,7 @@ For example:
 ```javascript
 component: () =>
   import(
-    /* webpackChunkName: "createArticle" */ "@/views/newArticle/NewArticleView.vue"
+    /* webpackChunkName: "createArticle" */ "@/views/ArticlesCreateView.vue"
   ),
 ```
 In this code, the **NewArticleView** component will be loaded as a separate chunk when the user navigates to the "new-article" route.
