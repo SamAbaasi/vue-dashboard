@@ -1,15 +1,9 @@
-export interface Article {
+export interface ArticleType {
   title: string;
   description: string;
   body: string;
   tagList: string[];
-}
-
-export interface ArticleFormProps {
-  article: Article;
-  newTag: string;
-  tags: string[];
-  isEditing: boolean;
+  slug?: string;
 }
 export interface ArticleFormData {
   newTag: string;

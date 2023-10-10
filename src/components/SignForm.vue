@@ -103,7 +103,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { TRANSLATIONS } from "@/constants/signForm";
-import { LoginDataTypes, PageTranslations } from "@/types/signForm";
+import { SignFormDataTypes, PageTranslations } from "@/types/signForm";
 import {
   ValidationProvider,
   ValidationObserver,
@@ -132,7 +132,7 @@ export default defineComponent({
         password: "",
         username: "",
         TRANSLATIONS,
-      } as LoginDataTypes,
+      } as SignFormDataTypes,
     };
   },
   computed: {

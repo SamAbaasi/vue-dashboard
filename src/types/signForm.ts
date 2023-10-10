@@ -13,12 +13,7 @@ export type TranslationsTypes = {
   login: PageTranslations;
 };
 
-export interface validationsTypes {
-  email: RegExp;
-  password: RegExp;
-}
-
-export interface LoginDataTypes {
+export interface SignFormDataTypes {
   email: string;
   password: string;
   username?: string;

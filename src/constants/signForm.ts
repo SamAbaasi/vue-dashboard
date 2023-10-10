@@ -1,4 +1,10 @@
-import { TranslationsTypes, validationsTypes } from "@/types/signForm";
+import { TranslationsTypes } from "@/types/signForm";
+
+// We need validationsTypes just once and just here
+interface validationsTypes {
+  email: RegExp;
+  password: RegExp;
+}
 
 export const TRANSLATIONS: TranslationsTypes = {
   user: "User",

@@ -1,10 +1,10 @@
 import { AxiosResponse } from "axios";
 import axios from "@/lib/axios";
-import { ArticleData } from "@/types/articles";
+import { ArticleType } from "@/types/article";
 import store from "@/store";
 
 // Create an article
-export const createArticle = async (articleData: ArticleData) => {
+export const createArticle = async (articleData: ArticleType) => {
   const response: AxiosResponse = await axios.post("/articles", {
     article: articleData,
   });
@@ -16,7 +16,7 @@ export const createArticle = async (articleData: ArticleData) => {
 };
 
 // Edit an article
-export const editArticle = async (slug: string, articleData: ArticleData) => {
+export const editArticle = async (slug: string, articleData: ArticleType) => {
   const response: AxiosResponse = await axios.put(`/articles/${slug}`, {
     article: articleData,
   });

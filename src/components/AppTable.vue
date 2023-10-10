@@ -97,7 +97,7 @@
 import { defineComponent } from "vue";
 import { deleteArticle } from "@/api/articles";
 import useAPI from "@/hooks/useApi";
-import { ArticleData } from "@/types/articles";
+import { ArticleType } from "@/types/article";
 import store from "@/store";
 import AppTableInfoModal from "@/components/AppTableInfoModal.vue"
 
@@ -158,7 +158,7 @@ export default defineComponent({
       await request();
       this.loadingDelete = false;
     },
-    info(item: ArticleData, button: Event) {
+    info(item: ArticleType, button: Event) {
       this.infoModal.slug = item.slug || "";
       this.$root.$emit("bv::show::modal", this.infoModal.id, button);
     },

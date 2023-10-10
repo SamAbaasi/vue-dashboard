@@ -126,7 +126,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { Article, ArticleFormData } from "@/types/articleForm";
+import { ArticleType, ArticleFormData } from "@/types/article";
 import { getAllTags } from "@/api/tags";
 import { TRANSLATIONS } from "@/constants/articleForm";
 import ArticleFormSkeleton from "@/components/ArticleFormSkeleton.vue";
@@ -146,7 +146,7 @@ export default defineComponent({
   },
   props: {
     article: {
-      type: Object as () => Article,
+      type: Object as () => ArticleType,
       required: true,
     },
     isEditing: {

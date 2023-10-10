@@ -13,7 +13,7 @@
 import { defineComponent } from "vue";
 import ArticleForm from "@/components/ArticleForm.vue";
 import { createArticle } from "@/api/articles";
-import { ArticleData } from "@/types/articles";
+import { ArticleType } from "@/types/article";
 import useAPI from "@/hooks/useApi";
 
 export default defineComponent({
@@ -28,7 +28,7 @@ export default defineComponent({
         description: "",
         body: "",
         tagList: [],
-      } as ArticleData,
+      } as ArticleType,
       loading: false,
     };
   },

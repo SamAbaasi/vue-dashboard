@@ -15,27 +15,3 @@ export const loginUser = async (user: UserData) => {
   });
   return response.data;
 };
-
-export const loginAndRememberToken = async (user: UserData) => {
-  const response: AxiosResponse = await axios.post("/users/login", {
-    user,
-  });
-  const token = response.data?.user?.token;
-  if (token) {
-    // Save the token to local storage
-    localStorage.setItem("token", token);
-  }
-  return response.data;
-};
-
-export const getCurrentUser = async () => {
-  const response: AxiosResponse = await axios.get("/user");
-  return response.data;
-};
-
-export const updateUser = async (userUpdateData: UserData) => {
-  const response: AxiosResponse = await axios.put("/user", {
-    user: userUpdateData,
-  });
-  return response.data;
-};

@@ -1,4 +1,11 @@
-import { FieldType, OptionsType } from "@/types/articles";
+import { FieldType } from "@/types/articles";
+
+// We need OptionsType just once and just here
+interface OptionsType {
+  year?: "numeric" | "2-digit";
+  month?: "numeric" | "2-digit" | "long" | "short" | "narrow";
+  day?: "numeric" | "2-digit";
+}
 
 export const fields: FieldType[] = [
   {

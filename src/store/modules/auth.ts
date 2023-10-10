@@ -1,8 +1,5 @@
 import {
-  getCurrentUser,
   loginUser,
-  loginAndRememberToken,
-  updateUser,
   registerUser,
 } from "@/api/auth";
 import router from "@/router";
@@ -60,32 +57,7 @@ const actions: ActionTree<AuthState, unknown> = {
       throw error;
     }
   },
-  async loginWithRememberToken({ commit }, user: UserData) {
-    const response = await loginAndRememberToken(user);
-    const token = response?.user?.token;
-    if (token) {
-      commit("SET_TOKEN", token);
-      commit("SET_USER", response.user); // Save the user information
-      router.push({ name: "home" });
-    }
-    return token;
-  },
-  async getCurrentUser({ commit }) {
-    const response = await getCurrentUser();
-    const user = response?.user;
-    if (user) {
-      commit("SET_USER", user); // Save the user information
-    }
-    return user;
-  },
-  async updateUser({ commit }, userUpdateData: UserData) {
-    const response = await updateUser(userUpdateData);
-    const user = response?.user;
-    if (user) {
-      commit("SET_USER", user); // Save the updated user information
-    }
-    return user;
-  },
+
   async register({ commit }, userData: UserRegisterData) {
     const response = await registerUser(userData);
     const token = response?.user?.token;
