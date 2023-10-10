@@ -16,7 +16,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import BaseTable from "@/components/AppTable.vue";
-import { fields } from "@/assets/constants/articles";
+import { fields } from "@/constants/articles";
 import { getAllArticles } from "@/api/articles";
 import { ArticlesData } from "@/types/articles";
 import useAPI from "@/hooks/useApi";
