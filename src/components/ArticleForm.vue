@@ -263,4 +263,3 @@ export default Vue.extend({
   overflow: scroll;
 }
 </style>
-@/components/ArticleForm/ArticleForm@/constants/articleForm./articleForm../../types/articleForm

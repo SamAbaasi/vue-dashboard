@@ -197,4 +197,3 @@ export default Vue.extend({
   text-decoration: none;
 }
 </style>
-../constants/ignForm../constants/signForm
