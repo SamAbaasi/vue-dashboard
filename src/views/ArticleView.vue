@@ -1,6 +1,6 @@
 <template>
   <div class="edit-article">
-    <article-form
+    <ArticleForm
       :article="article"
       :is-editing="true"
       :loading="loading"
@@ -11,13 +11,13 @@
 
 <script lang="ts">
 import Vue from "vue";
-import ArticleForm from "@/components/ArticleForm/ArticleForm.vue";
-import { getArticle, editArticle } from "@/API/articles";
+import ArticleForm from "@/components/ArticleForm.vue";
+import { getArticle, editArticle } from "@/api/articles";
 import { ArticleData } from "@/types/articles";
-import useAPI from "@/Hooks/useApi";
+import useAPI from "@/hooks/useApi";
 
 export default Vue.extend({
-  name: "NewArticleView",
+  name: "ArticleView",
   components: {
     ArticleForm,
   },

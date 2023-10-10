@@ -1,16 +1,16 @@
 <template>
   <div>
-    <navbar-view
+    <TheNavbar
       :user="user"
       @logout="handleLogout"
     />
     <div class="d-flex">
-      <sidebar-view />
+      <TheSidebar />
       <b-container
         fluid
         class="router-container"
       >
-        <Toast />
+        <AppToast />
         <!-- This is where the routed components will be displayed -->
         <router-view />
       </b-container>
@@ -19,20 +19,20 @@
 </template>
 
 <script lang="ts">
-import SidebarView from "@/components/Sidebar/SidebarView.vue";
-import NavbarView from "@/components/Navbar/NavbarView.vue";
+import TheSidebar from "@/components/TheSidebar.vue";
+import TheNavbar from "@/components/TheNavbar.vue";
 import router from "@/router";
 import { LOGIN } from "@/routes";
 import store from "@/store";
-import Toast from "@/components/Toast/ToastView.vue";
+import AppToast from "@/components/AppToast.vue";
 // import { mapActions, mapState } from "vuex";
 
 export default {
   name: "AppLayout",
   components: {
-    SidebarView,
-    NavbarView,
-    Toast,
+    TheSidebar,
+    TheNavbar,
+    AppToast,
   },
   computed: {
     // ...mapState("auth", ["user"]),

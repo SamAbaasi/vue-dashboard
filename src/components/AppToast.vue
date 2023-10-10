@@ -26,6 +26,7 @@ import Vue from "vue";
 import store from "@/store";
 
 export default Vue.extend({
+  name: 'AppToast',
   props: {
     padding: {
       type: Boolean,
@@ -68,7 +69,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style lang="scss" scoped>
 .toast-container {
   position: absolute !important;
   right: 0px;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Toast padding />
+    <AppToast padding />
     <div class="SignForm">
       <!-- This is where the routed components will be displayed -->
       <router-view />
@@ -9,12 +9,12 @@
 </template>
   
   <script lang="ts">
-  import Toast from "@/components/Toast/ToastView.vue";
+  import AppToast from "@/components/AppToast.vue";
   
   export default {
     name: "SignLayout",
     components: {
-      Toast,
+        AppToast,
     },
   };
   </script>

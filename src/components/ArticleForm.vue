@@ -126,18 +126,19 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { Article, ArticleFormData } from "./types";
-import { getAllTags } from "@/API/tags";
-import { TRANSLATIONS } from "@/components/ArticleForm/constants";
-import ArticleFormSkeleton from "@/components/ArticleForm/components/ArticlePageSkeleton.vue";
+import { Article, ArticleFormData } from "@/types/articleForm";
+import { getAllTags } from "@/api/tags";
+import { TRANSLATIONS } from "@/constants/articleForm";
+import ArticleFormSkeleton from "@/components/ArticleFormSkeleton.vue";
 import {
   ValidationProvider,
   ValidationObserver,
 } from "vee-validate";
 import "@/utils/validationRules";
-import useAPI from "@/Hooks/useApi";
+import useAPI from "@/hooks/useApi";
 
 export default Vue.extend({
+  name: 'ArticleForm',
   components: {
     ValidationProvider,
     ValidationObserver,
@@ -262,3 +263,4 @@ export default Vue.extend({
   overflow: scroll;
 }
 </style>
+@/components/ArticleForm/ArticleForm@/constants/articleForm./articleForm../../types/articleForm

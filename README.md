@@ -189,7 +189,7 @@ Here's how the `useAPI` function works:
 Here's an example of how you can use the `useAPI` function in your Vue.js application:
 
 ```javascript
-import useAPI from "@/Hooks/useAPI"; // Import the useAPI function
+import useAPI from "@/hooks/useAPI"; // Import the useAPI function
 
 async deleteArticleAction(slug: string) {
       this.loadingDelete = true;

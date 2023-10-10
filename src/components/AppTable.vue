@@ -83,33 +83,28 @@
       </b-col>
     </b-row>
     <!-- Info modal -->
-    <TableInfoModal
+    <AppTableInfoModal
       :info-modal="infoModal"
       :loading="loading"
       :loading-delete="loadingDelete"
       @delete-article-action="deleteArticleAction"
       @reset-info-modal="resetInfoModal"
     />
-    <b-toast
-      id="home-toast"
-      variant="success"
-      solid
-      :title="toastMessage"
-    />
   </b-container>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import { deleteArticle } from "@/API/articles";
-import useAPI from "@/Hooks/useApi";
+import { deleteArticle } from "@/api/articles";
+import useAPI from "@/hooks/useApi";
 import { ArticleData } from "@/types/articles";
 import store from "@/store";
-import TableInfoModal from "@/components/TableView/components/TableInfoModal.vue"
+import AppTableInfoModal from "@/components/AppTableInfoModal.vue"
 
 export default Vue.extend({
+  name: 'AppTable',
   components: {
-    TableInfoModal,
+    AppTableInfoModal,
   },
   props: {
     articles: {
@@ -124,7 +119,10 @@ export default Vue.extend({
       type: Number,
       default: 0,
     },
-    loading: Boolean,
+    loading: {
+      type: Boolean,
+      required: true,
+    },
   },
   data() {
     return {
@@ -135,7 +133,6 @@ export default Vue.extend({
       loadingDelete: false,
       showToast: false,
       toastVariant: "default",
-      toastMessage: "",
       currentPage: 1,
       perPage: 5,
     };

@@ -11,13 +11,13 @@
 
 <script lang="ts">
 import Vue from "vue";
-import ArticleForm from "@/components/ArticleForm/ArticleForm.vue"; // Import your ArticleForm component here
-import { createArticle } from "@/API/articles";
+import ArticleForm from "@/components/ArticleForm.vue";
+import { createArticle } from "@/api/articles";
 import { ArticleData } from "@/types/articles";
-import useAPI from "@/Hooks/useApi";
+import useAPI from "@/hooks/useApi";
 
 export default Vue.extend({
-  name: "NewArticleView",
+  name: "ArticlesCreateView",
   components: {
     ArticleForm,
   },

@@ -1,4 +1,4 @@
-import { TranslationsTypes, validationsTypes } from "./types";
+import { TranslationsTypes, validationsTypes } from "@/types/signForm";
 
 export const TRANSLATIONS: TranslationsTypes = {
   user: "User",

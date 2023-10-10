@@ -4,7 +4,7 @@ import {
   loginAndRememberToken,
   updateUser,
   registerUser,
-} from "@/API/auth";
+} from "@/api/auth";
 import router from "@/router";
 import { UserType, UserData, UserRegisterData } from "@/types/user";
 import { MutationTree, ActionTree, GetterTree } from "vuex";

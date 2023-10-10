@@ -102,8 +102,8 @@
 
 <script lang="ts">
 import Vue from "vue";
-import { TRANSLATIONS } from "./constants";
-import { LoginDataTypes, PageTranslations } from "./types";
+import { TRANSLATIONS } from "@/constants/signForm";
+import { LoginDataTypes, PageTranslations } from "@/types/signForm";
 import {
   ValidationProvider,
   ValidationObserver,
@@ -197,3 +197,4 @@ export default Vue.extend({
   text-decoration: none;
 }
 </style>
+../constants/ignForm../constants/signForm

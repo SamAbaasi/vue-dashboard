@@ -1,19 +1,18 @@
 <template>
   <SignForm
-    :type="'register'"
+    :type="'login'"
     :loading="loading"
-    @form-submit="register"
+    @form-submit="login"
   />
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import SignForm from "@/components/SignForm/SignForm.vue";
+import SignForm from "@/components/SignForm.vue";
 import store from "@/store";
 import { UserData } from "@/types/user";
-
 export default Vue.extend({
-  name: "RegisterView",
+  name: "LoginView",
   components: {
     SignForm,
   },
@@ -23,9 +22,9 @@ export default Vue.extend({
     };
   },
   methods: {
-    async register(userData: UserData) {
+    async login(userData: UserData) {
       this.loading = true;
-      await store.dispatch("register", userData).finally(() => {
+      await store.dispatch("login", userData).finally(() => {
         this.loading = false;
       });
     },

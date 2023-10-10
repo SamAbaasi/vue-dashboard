@@ -31,10 +31,12 @@ import { UserType } from "@/types/user";
 import { PropType } from "vue";
 
 export default Vue.extend({
+  name: 'TheNavbar',
   props: {
     user: {
       type: Object as PropType<UserType | null>,
       default: null,
+      required: true,
     },
   },
   methods: {

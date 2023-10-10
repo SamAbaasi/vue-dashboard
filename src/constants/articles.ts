@@ -1,5 +1,4 @@
-import { FieldType } from "@/types/articles";
-import { OptionsType } from "@/views/Home/types";
+import { FieldType, OptionsType } from "@/types/articles";
 
 export const fields: FieldType[] = [
   {

@@ -2,8 +2,8 @@ import Vue from "vue";
 import VueRouter, { RouteConfig } from "vue-router";
 import store from "@/store";
 import * as paths from "@/routes";
-import AppLayout from "@/Layouts/AppLayout/AppLayout.vue";
-import SignLayout from "@/Layouts/SignLayout/SignLayout.vue";
+import AppLayout from "@/layouts/AppLayout.vue";
+import SignLayout from "@/layouts/SignLayout.vue";
 
 Vue.use(VueRouter);
 
@@ -16,14 +16,14 @@ const routes: Array<RouteConfig> = [
         path: "", // Empty path for the default child route
         name: "home",
         component: () =>
-          import(/* webpackChunkName: "home" */ "@/views/Home/HomeView.vue"),
+          import(/* webpackChunkName: "home" */ "@/views/ArticlesView.vue"),
       },
       {
         path: paths.CREATE_ARTICLE,
         name: "new-article",
         component: () =>
           import(
-            /* webpackChunkName: "createArticle" */ "@/views/newArticle/NewArticleView.vue"
+            /* webpackChunkName: "createArticle" */ "@/views/ArticlesCreateView.vue"
           ),
       },
       {
@@ -31,7 +31,7 @@ const routes: Array<RouteConfig> = [
         name: "article",
         component: () =>
           import(
-            /* webpackChunkName: "article" */ "@/views/Article/ArticleView.vue"
+            /* webpackChunkName: "article" */ "@/views/ArticleView.vue"
           ),
       },
     ],
@@ -44,7 +44,7 @@ const routes: Array<RouteConfig> = [
         path: "",
         name: "login",
         component: () =>
-          import(/* webpackChunkName: "login" */ "@/views/login/LoginView.vue"),
+          import(/* webpackChunkName: "login" */ "@/views/LoginView.vue"),
       },
     ],
   },
@@ -57,7 +57,7 @@ const routes: Array<RouteConfig> = [
         name: "register",
         component: () =>
           import(
-            /* webpackChunkName: "register" */ "@/views/register/RegisterView.vue"
+            /* webpackChunkName: "register" */ "@/views/RegisterView.vue"
           ),
       },
     ],
@@ -68,7 +68,7 @@ const routes: Array<RouteConfig> = [
     path: "*",
     name: "not-found",
     component: () =>
-      import(/* webpackChunkName: "notFound" */ "@/views/404/NotFoundView.vue"),
+      import(/* webpackChunkName: "notFound" */ "@/views/NotFoundView.vue"),
   },
 ];
 

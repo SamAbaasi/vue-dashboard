@@ -3,7 +3,7 @@
     <h1 class="text-left mb-4">
       All Posts
     </h1>
-    <TableView
+    <BaseTable
       :loading="loading"
       :articles="articles"
       :fields="fields"
@@ -15,14 +15,15 @@
 
 <script lang="ts">
 import Vue from "vue";
-import TableView from "@/components/TableView/TableView.vue";
-import { fields } from "@/views/Home/constants";
-import { getAllArticles } from "@/API/articles";
+import BaseTable from "@/components/AppTable.vue";
+import { fields } from "@/constants/articles";
+import { getAllArticles } from "@/api/articles";
 import { ArticlesData } from "@/types/articles";
-import useAPI from "@/Hooks/useApi";
+import useAPI from "@/hooks/useApi";
 export default Vue.extend({
+  name: "ArticlesView",
   components: {
-    TableView,
+    BaseTable,
   },
   data(): ArticlesData {
     return {

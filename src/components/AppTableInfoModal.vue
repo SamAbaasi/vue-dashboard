@@ -43,7 +43,7 @@ interface InfoModalType {
     slug: string,
 };
 export default Vue.extend({
-    name: "TableInfoModal",
+    name: "AppTableInfoModal",
     props: {
         loadingDelete: {
             type: Boolean,
