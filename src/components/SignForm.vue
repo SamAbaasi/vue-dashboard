@@ -101,7 +101,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { TRANSLATIONS } from "@/constants/signForm";
 import { LoginDataTypes, PageTranslations } from "@/types/signForm";
 import {
@@ -109,7 +109,7 @@ import {
   ValidationObserver,
 } from "vee-validate";
 import "@/utils/validationRules";
-export default Vue.extend({
+export default defineComponent({
   name: "SignForm",
   components: {
     ValidationProvider,

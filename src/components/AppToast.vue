@@ -22,10 +22,10 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import store from "@/store";
 
-export default Vue.extend({
+export default defineComponent({
   name: 'AppToast',
   props: {
     padding: {

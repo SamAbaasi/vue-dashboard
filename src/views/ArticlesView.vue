@@ -14,13 +14,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import BaseTable from "@/components/AppTable.vue";
 import { fields } from "@/constants/articles";
 import { getAllArticles } from "@/api/articles";
 import { ArticlesData } from "@/types/articles";
 import useAPI from "@/hooks/useApi";
-export default Vue.extend({
+export default defineComponent({
   name: "ArticlesView",
   components: {
     BaseTable,

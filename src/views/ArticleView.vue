@@ -10,13 +10,13 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import ArticleForm from "@/components/ArticleForm.vue";
 import { getArticle, editArticle } from "@/api/articles";
 import { ArticleData } from "@/types/articles";
 import useAPI from "@/hooks/useApi";
 
-export default Vue.extend({
+export default defineComponent({
   name: "ArticleView",
   components: {
     ArticleForm,

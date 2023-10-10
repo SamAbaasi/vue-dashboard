@@ -125,7 +125,7 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { Article, ArticleFormData } from "@/types/articleForm";
 import { getAllTags } from "@/api/tags";
 import { TRANSLATIONS } from "@/constants/articleForm";
@@ -137,7 +137,7 @@ import {
 import "@/utils/validationRules";
 import useAPI from "@/hooks/useApi";
 
-export default Vue.extend({
+export default defineComponent({
   name: 'ArticleForm',
   components: {
     ValidationProvider,

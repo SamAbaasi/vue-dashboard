@@ -94,14 +94,14 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import { deleteArticle } from "@/api/articles";
 import useAPI from "@/hooks/useApi";
 import { ArticleData } from "@/types/articles";
 import store from "@/store";
 import AppTableInfoModal from "@/components/AppTableInfoModal.vue"
 
-export default Vue.extend({
+export default defineComponent({
   name: 'AppTable',
   components: {
     AppTableInfoModal,

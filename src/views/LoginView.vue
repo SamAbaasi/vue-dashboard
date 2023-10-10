@@ -7,11 +7,11 @@
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import { defineComponent } from "vue";
 import SignForm from "@/components/SignForm.vue";
 import store from "@/store";
 import { UserData } from "@/types/user";
-export default Vue.extend({
+export default defineComponent({
   name: "LoginView",
   components: {
     SignForm,
