@@ -41,9 +41,12 @@ export default defineComponent({
         successCallback: () => {
           this.$router.push(`/`);
         },
+        failedCallback: () => {
+          this.loading = false;
+        },
       });
       await request();
-      this.loading = pending.value;
+      this.loading = false;
     },
   },
 });

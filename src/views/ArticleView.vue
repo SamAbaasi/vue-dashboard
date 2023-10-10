@@ -63,7 +63,7 @@ export default defineComponent({
       });
 
       await request();
-      this.loading = pending.value;
+      this.loading = false;
     },
   },
 });
