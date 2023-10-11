@@ -13,22 +13,25 @@
 import { defineComponent } from "vue";
 import ArticleForm from "@/components/ArticleForm.vue";
 import { createArticle } from "@/api/articles";
-import { ArticleType } from "@/types/article";
+import type { ArticleType } from "@/types/article";
 import useAPI from "@/hooks/useApi";
-
+type DataShape = {
+  article: ArticleType;
+  loading: boolean;
+}
 export default defineComponent({
   name: "ArticlesCreateView",
   components: {
     ArticleForm,
   },
-  data() {
+  data(): DataShape {
     return {
       article: {
         title: "",
         description: "",
         body: "",
         tagList: [],
-      } as ArticleType,
+      },
       loading: false,
     };
   },

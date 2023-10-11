@@ -23,8 +23,11 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import type { Toast } from "@/types/toast";
 import store from "@/store";
-
+type DataShape = {
+  dismissSecs: number;
+}
 export default defineComponent({
   name: 'AppToast',
   props: {
@@ -33,13 +36,13 @@ export default defineComponent({
       required: false,
     },
   },
-  data() {
+  data(): DataShape {
     return {
       dismissSecs: 5,
     };
   },
   computed: {
-    toasts() {
+    toasts(): Toast[] {
       return store.getters.toasts;
     },
     toastClass(): string {

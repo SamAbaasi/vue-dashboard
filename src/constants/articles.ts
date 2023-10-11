@@ -1,4 +1,4 @@
-import { FieldType } from "@/types/articles";
+import type { FieldType } from "@/types/articles";
 
 // We need OptionsType just once and just here
 interface OptionsType {
@@ -45,7 +45,7 @@ export const fields: FieldType[] = [
 
 // ********* Methods ***********
 
-function dateFormat(isoDate: string) {
+function dateFormat(isoDate: string): string {
   const options: OptionsType = {
     year: "numeric",
     month: "long",
@@ -54,15 +54,15 @@ function dateFormat(isoDate: string) {
   return new Date(isoDate).toLocaleDateString(undefined, options);
 }
 
-function tagListFormat(tagList: Array<string>) {
+function tagListFormat(tagList: Array<string>): string {
   return tagList.join(", ");
 }
-function excerptGenerator(value: string) {
-  const words = value.split(" ");
+function excerptGenerator(value: string): string {
+  const words: string[] = value.split(" ");
   if (value.length <= 20) {
     return value;
   } else {
-    const excerpt = words.slice(0, 20).join(" ");
+    const excerpt: string = words.slice(0, 20).join(" ");
     return `${excerpt}...`;
   }
 }

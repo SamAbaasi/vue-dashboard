@@ -1,4 +1,4 @@
-import { TranslationsTypes } from "@/types/signForm";
+import type { TranslationsTypes } from "@/types/signForm";
 
 // We need validationsTypes just once and just here
 interface validationsTypes {

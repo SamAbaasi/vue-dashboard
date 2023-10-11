@@ -103,12 +103,15 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { TRANSLATIONS } from "@/constants/signForm";
-import { SignFormDataTypes, PageTranslations } from "@/types/signForm";
+import type { SignFormDataTypes, PageTranslations } from "@/types/signForm";
 import {
   ValidationProvider,
   ValidationObserver,
 } from "vee-validate";
 import "@/utils/validationRules";
+type DataShape = {
+  formData: SignFormDataTypes;
+}
 export default defineComponent({
   name: "SignForm",
   components: {
@@ -125,14 +128,14 @@ export default defineComponent({
       required: true,
     },
   },
-  data() {
+  data(): DataShape {
     return {
       formData: {
         email: "",
         password: "",
         username: "",
         TRANSLATIONS,
-      } as SignFormDataTypes,
+      },
     };
   },
   computed: {
@@ -163,7 +166,7 @@ export default defineComponent({
       dirty: boolean;
       validated: boolean;
       valid?: null | boolean;
-    }) {
+    }): boolean | null {
       return dirty || validated ? valid : null;
     },
     submitForm() {

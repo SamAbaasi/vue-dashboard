@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 import axios from "@/lib/axios";
-import { ArticleType } from "@/types/article";
+import type { ArticleType } from "@/types/article";
 import store from "@/store";
 
 // Create an article

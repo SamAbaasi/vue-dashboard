@@ -10,13 +10,16 @@
 import { defineComponent } from "vue";
 import SignForm from "@/components/SignForm.vue";
 import store from "@/store";
-import { UserData } from "@/types/user";
+import type { UserData } from "@/types/user";
+type DataShape = {
+  loading: boolean;
+}
 export default defineComponent({
   name: "LoginView",
   components: {
     SignForm,
   },
-  data() {
+  data(): DataShape {
     return {
       loading: false,
     };

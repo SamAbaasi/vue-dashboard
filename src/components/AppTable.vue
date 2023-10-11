@@ -95,12 +95,24 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import type { PropType } from "vue";
 import { deleteArticle } from "@/api/articles";
 import useAPI from "@/hooks/useApi";
-import { ArticleType } from "@/types/article";
+import type { ArticleType } from "@/types/article";
 import store from "@/store";
 import AppTableInfoModal from "@/components/AppTableInfoModal.vue"
-
+import type { FieldType } from "@/types/articles";
+type DataShape = {
+  infoModal: {
+    id: string;
+    slug: string;
+  };
+  loadingDelete: boolean,
+  showToast: boolean,
+  toastVariant: string,
+  currentPage: number,
+  perPage: number,
+}
 export default defineComponent({
   name: 'AppTable',
   components: {
@@ -108,11 +120,11 @@ export default defineComponent({
   },
   props: {
     articles: {
-      type: Array,
+      type: Array as PropType<ArticleType[]>,
       default: () => [],
     },
     fields: {
-      type: Array,
+      type: Array as PropType<FieldType[]>,
       default: () => [],
     },
     totalRows: {
@@ -124,7 +136,7 @@ export default defineComponent({
       required: true,
     },
   },
-  data() {
+  data(): DataShape {
     return {
       infoModal: {
         id: "delete-modal",

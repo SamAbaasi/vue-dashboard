@@ -9,14 +9,15 @@
 </template>
   
   <script lang="ts">
+  import { defineComponent } from "vue";
   import AppToast from "@/components/AppToast.vue";
   
-  export default {
+  export default defineComponent({
     name: "SignLayout",
     components: {
         AppToast,
     },
-  };
+  });
   </script>
   <style scoped>
 .SignForm {

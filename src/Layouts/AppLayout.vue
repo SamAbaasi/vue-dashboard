@@ -19,15 +19,17 @@
 </template>
 
 <script lang="ts">
+import { defineComponent } from "vue";
 import TheSidebar from "@/components/TheSidebar.vue";
 import TheNavbar from "@/components/TheNavbar.vue";
 import router from "@/router";
 import { LOGIN } from "@/routes";
 import store from "@/store";
 import AppToast from "@/components/AppToast.vue";
+import type { UserType } from "@/types/user";
 // import { mapActions, mapState } from "vuex";
 
-export default {
+export default defineComponent({
   name: "AppLayout",
   components: {
     TheSidebar,
@@ -36,7 +38,7 @@ export default {
   },
   computed: {
     // ...mapState("auth", ["user"]),
-    user() {
+    user(): UserType | null {
       return store.getters.userInfo;
     },
   },
@@ -47,7 +49,7 @@ export default {
       router.push({ name: LOGIN });
     },
   },
-};
+});
 </script>
 <style scoped>
 .router-container {

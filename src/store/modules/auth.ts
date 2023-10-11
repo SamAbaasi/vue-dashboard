@@ -3,7 +3,7 @@ import {
   registerUser,
 } from "@/api/auth";
 import router from "@/router";
-import { UserType, UserData, UserRegisterData } from "@/types/user";
+import type { UserType, UserData, UserRegisterData } from "@/types/user";
 import { MutationTree, ActionTree, GetterTree } from "vuex";
 
 interface AuthState {

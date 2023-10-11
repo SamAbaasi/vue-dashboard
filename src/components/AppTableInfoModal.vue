@@ -36,7 +36,8 @@
   </b-modal>
 </template>
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { defineComponent } from "vue";
+import type { PropType } from "vue";
 
 interface InfoModalType {
     id: string,
@@ -61,10 +62,10 @@ export default defineComponent({
         }
     },
     methods: {
-        deleteArticle(slug: string): void {
+        deleteArticle(slug: string) {
             this.$emit('delete-article-action', slug)
         },
-        resetInfo(): void {
+        resetInfo() {
             this.$emit('reset-info-modal')
         }
     }

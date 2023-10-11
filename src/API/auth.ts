@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 import axios from "@/lib/axios";
-import { UserData, UserRegisterData } from "@/types/user";
+import type { UserData, UserRegisterData } from "@/types/user";
 
 export const registerUser = async (userData: UserRegisterData) => {
   const response: AxiosResponse = await axios.post("/users", {

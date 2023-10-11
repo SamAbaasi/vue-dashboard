@@ -126,6 +126,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import type { PropType } from "vue";
 import { ArticleType, ArticleFormData } from "@/types/article";
 import { getAllTags } from "@/api/tags";
 import { TRANSLATIONS } from "@/constants/articleForm";
@@ -146,7 +147,7 @@ export default defineComponent({
   },
   props: {
     article: {
-      type: Object as () => ArticleType,
+      type: Object as PropType<ArticleType>,
       required: true,
     },
     isEditing: {
@@ -192,8 +193,8 @@ export default defineComponent({
       },
     },
   },
-  async created() {
-    await this.fetchTags();
+  created() {
+    this.fetchTags();
   },
   methods: {
     async fetchTags() {
@@ -233,7 +234,7 @@ export default defineComponent({
       dirty: boolean;
       validated: boolean;
       valid?: null | boolean;
-    }) {
+    }): boolean | null {
       return dirty || validated ? valid : null;
     },
   },

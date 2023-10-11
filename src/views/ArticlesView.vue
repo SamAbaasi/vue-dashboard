@@ -18,7 +18,7 @@ import { defineComponent } from "vue";
 import BaseTable from "@/components/AppTable.vue";
 import { fields } from "@/constants/articles";
 import { getAllArticles } from "@/api/articles";
-import { ArticlesData } from "@/types/articles";
+import type { ArticlesData } from "@/types/articles";
 import useAPI from "@/hooks/useApi";
 export default defineComponent({
   name: "ArticlesView",
@@ -48,16 +48,6 @@ export default defineComponent({
       });
       await request();
       this.loading = false;
-    },
-    generateExcerpt(body: string) {
-      // Extract the first 20 words from the article body
-      const words = body.split(" ");
-      if (words.length <= 20) {
-        return body;
-      } else {
-        const excerpt = words.slice(0, 20).join(" ");
-        return `${excerpt}...`;
-      }
     },
   },
 });

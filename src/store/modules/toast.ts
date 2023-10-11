@@ -1,17 +1,9 @@
 import { Commit, GetterTree } from "vuex";
 import { v4 as uuidv4 } from "uuid";
+import type { Toast } from "@/types/toast";
 
 interface ToastState {
   toasts: Array<Toast>;
-}
-
-interface Toast {
-  id: string;
-  show: boolean;
-  message: string;
-  variant?: string;
-  boldMessage?: string;
-  timerId: number | null;
 }
 
 const state: ToastState = {

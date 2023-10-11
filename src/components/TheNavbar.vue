@@ -26,8 +26,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { UserType } from "@/types/user";
+import { defineComponent } from "vue";
+import type { PropType } from "vue";
+import type { UserType } from "@/types/user";
 
 export default defineComponent({
   name: 'TheNavbar',
