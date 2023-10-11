@@ -5,7 +5,7 @@
     variant="dark"
   >
     <b-navbar-brand to="/">
-      Arvan Challenge
+      Articles
     </b-navbar-brand>
     <b-navbar-nav>
       <b-nav-item>

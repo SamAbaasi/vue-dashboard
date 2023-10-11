@@ -33,6 +33,12 @@ function handleApiError(error: AxiosError) {
       return;
     }
 
+    if (status === 401) {
+      // logout
+      store.dispatch("logout")
+      return;
+    }
+
     if (errorsData) {
       for (const key in errorsData) {
         if (Object.prototype.hasOwnProperty.call(errorsData, key)) {
